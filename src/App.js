@@ -194,7 +194,7 @@
 // export default App;
 
 
-  import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -287,7 +287,7 @@ function App() {
     });
 
     setAchievements(unlocked);
-  }, [clicks, stairs]);
+  }, [clicks, stairs, achievements, normalAdvancements, hiddenAdvancements]);
 
   // Apply rewards
   const applyReward = (reward) => {
