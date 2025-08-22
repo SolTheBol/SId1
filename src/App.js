@@ -194,7 +194,7 @@
 // export default App;
 
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useMemo,useState, useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
@@ -232,27 +232,27 @@ function App() {
   };
 
   // Normal + Extra merged advancements
-  const normalAdvancements = [
-    { id: 1, name: "First Step", requirement: 1, reward: "Gain +1 CPS" },
-    { id: 2, name: "Click Apprentice", requirement: 50, reward: "Click Power +1" },
-    { id: 3, name: "Click Master", requirement: 100, reward: "Click Power +2" },
-    { id: 4, name: "The Builder", requirement: 1, type: "stairs", reward: "Gain +5 CPS" },
-    { id: 5, name: "Stair Collector", requirement: 10, type: "stairs", reward: "Click Power +5" },
-    { id: 6, name: "Click Legend", requirement: 500, reward: "Click Power +10" },
-    { id: 7, name: "Floor Walker", requirement: 50, type: "stairs", reward: "Gain +10 CPS" },
-    { id: 8, name: "Endless Tapper", requirement: 2000, reward: "Click Power +25" },
-    { id: 9, name: "Monument Maker", requirement: 100, type: "stairs", reward: "Gain +50 CPS" },
-    { id: 10, name: "Grand Clicker", requirement: 5000, reward: "Click Power +50" },
-  ];
+const normalAdvancements = useMemo(() => [
+  { id: 1, name: "First Step", requirement: 1, reward: "Gain +1 CPS" },
+  { id: 2, name: "Click Apprentice", requirement: 50, reward: "Click Power +1" },
+  { id: 3, name: "Click Master", requirement: 100, reward: "Click Power +2" },
+  { id: 4, name: "The Builder", requirement: 1, type: "stairs", reward: "Gain +5 CPS" },
+  { id: 5, name: "Stair Collector", requirement: 10, type: "stairs", reward: "Click Power +5" },
+  { id: 6, name: "Click Legend", requirement: 500, reward: "Click Power +10" },
+  { id: 7, name: "Floor Walker", requirement: 50, type: "stairs", reward: "Gain +10 CPS" },
+  { id: 8, name: "Endless Tapper", requirement: 2000, reward: "Click Power +25" },
+  { id: 9, name: "Monument Maker", requirement: 100, type: "stairs", reward: "Gain +50 CPS" },
+  { id: 10, name: "Grand Clicker", requirement: 5000, reward: "Click Power +50" },
+], []);
 
   // Hidden + Ultra merged advancements
-  const hiddenAdvancements = [
-    { id: 101, name: "Hidden Step", requirement: 250, reward: "Click Power +100" },
-    { id: 102, name: "Secret Climber", requirement: 50, type: "stairs", reward: "Gain +200 CPS" },
-    { id: 103, name: "Ultra Tapper", requirement: 10000, reward: "Click Power +500" },
-    { id: 104, name: "Silent Architect", requirement: 200, type: "stairs", reward: "Gain +1000 CPS" },
-    { id: 105, name: "The Eternal", requirement: 50000, reward: "Click Power +2000" },
-  ];
+ const hiddenAdvancements = useMemo(() => [
+  { id: 101, name: "Hidden Step", requirement: 250, reward: "Click Power +100" },
+  { id: 102, name: "Secret Climber", requirement: 50, type: "stairs", reward: "Gain +200 CPS" },
+  { id: 103, name: "Ultra Tapper", requirement: 10000, reward: "Click Power +500" },
+  { id: 104, name: "Silent Architect", requirement: 200, type: "stairs", reward: "Gain +1000 CPS" },
+  { id: 105, name: "The Eternal", requirement: 50000, reward: "Click Power +2000" },
+], []);
 
   // Auto clicks from CPS
   useEffect(() => {
